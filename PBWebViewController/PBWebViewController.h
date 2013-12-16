@@ -30,6 +30,8 @@
 
 /** The list of services that should not be displayed. */
 @property (strong, nonatomic) NSArray *excludedActivityTypes;
+/** Update the state of stop/reload button */
+@property (nonatomic) BOOL updateStopReloadButton;
 
 /**
  * A Boolean indicating whether the web view controller’s toolbar,

@@ -30,6 +30,7 @@
     self = [super init];
     if (self) {
         _showsNavigationToolbar = YES;
+        _updateStopReloadButton = YES;
     }
     return self;
 }
@@ -187,14 +188,16 @@
 {
     self.backButton.enabled = self.webView.canGoBack;
     self.forwardButton.enabled = self.webView.canGoForward;
-    
-    NSMutableArray *toolbarItems = [self.toolbarItems mutableCopy];
-    if (self.webView.loading) {
-        toolbarItems[0] = self.stopLoadingButton;
-    } else {
-        toolbarItems[0] = self.reloadButton;
+
+    if (self.updateStopReloadButton) {
+        NSMutableArray *toolbarItems = [self.toolbarItems mutableCopy];
+        if (self.webView.loading) {
+            toolbarItems[0] = self.stopLoadingButton;
+        } else {
+            toolbarItems[0] = self.reloadButton;
+        }
+        self.toolbarItems = [toolbarItems copy];
     }
-    self.toolbarItems = [toolbarItems copy];
 }
 
 - (void)finishLoad
