@@ -10,8 +10,6 @@
 
 @interface PBWebViewController () <UIPopoverControllerDelegate>
 
-@property (strong, nonatomic) UIWebView *webView;
-
 @property (strong, nonatomic) UIBarButtonItem *stopLoadingButton;
 @property (strong, nonatomic) UIBarButtonItem *reloadButton;
 @property (strong, nonatomic) UIBarButtonItem *backButton;
